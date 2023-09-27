@@ -14,10 +14,11 @@ size_t lomuto_partition(int *array, size_t size, int low, int high)
 	int pivot = array[high];
 	int temp;
 	int j, i = low - 1;
-	int swap_occurred = 0;
+	int swap_occurred;
 
 	for (j = low; j <= high - 1; j++)
 	{
+		swap_occurred = 0;
 		if (array[j] < pivot)
 		{
 			i++;
@@ -28,11 +29,9 @@ size_t lomuto_partition(int *array, size_t size, int low, int high)
 		}
 	}
 
-	/* Swap the pivot element to its correct position */
 	temp = array[i + 1];
 	array[i + 1] = array[high];
 	array[high] = temp;
-	swap_occurred = 1;
 
 	if (swap_occurred)
 		print_array(array, size);
