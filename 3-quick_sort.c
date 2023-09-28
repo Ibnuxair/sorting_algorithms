@@ -34,7 +34,8 @@ size_t lomuto_partition(int *array, size_t size, int low, int high)
 		temp = array[i + 1];
 		array[i + 1] = array[high];
 		array[high] = temp;
-		print_array(array, size);
+		if (array[i + 1] != array[high])
+			print_array(array, size);
 	}
 
 	return (i + 1);
